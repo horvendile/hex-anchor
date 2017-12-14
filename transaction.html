@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script>
+      function submitTransaction(_contractAddress , _value , _data) {
+        web3.eth.sendTransaction({to: _contractAddress, value: _value, data:_data, gasPrice: gas },
+          function(err, transactionHash) {
+            if(!err) {
+              console.log('Transaction Hash : ',transactionHash)
+              transactionHash = '0x34d8cb22f56a455657605244cc3961dfa23a7040b594e49f8d50ab92c3b64c15'
+              web3.eth.getTransactionReceipt(transactionHash ,
+                function(err,transactionObject) {
+                  if(!err) {
+                    console.log('Transaction Receipt : ',transactionObject);
+                    //  console.log('arrived!');
+                  }
+                });
+              }
+            })
+          };
+        //--------------------
+
+      var  hash = '0x34d8cb22f56a455657605244cc3961dfa23a7040b594e49f8d50ab92c3b64c15'
+
+      function receipt(h) {
+        web3.eth.getTransactionReceipt(h ,
+          function(err,transactionReceipt) {
+            if(!err) {
+              console.log('Transaction Receipt : ',transactionReceipt)
+              for (i=0;i<6;i++) {
+                console.log('Log.'+i+' : ',transactionReceipt.logs[i].data*1)
+              }
+            }
+          }
+        )
+      }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="receipt(hash)" >
+      Press
+    </button>
+  </body>
+</html>

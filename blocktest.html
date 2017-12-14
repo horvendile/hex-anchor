@@ -1,0 +1,18 @@
+<script>
+
+  var filter = web3.eth.filter('latest')
+  filter.watch(function(e, hash) {
+    if (!e) {
+      web3.eth.getBlock(hash, function(e,result) {
+        if(!e) {
+          console.log('==========================================================');
+          console.log(result);
+          var transactionArray = result.transactions;
+          for ( i=0 ; i<transactionArray.length ; i++ ) {
+            console.log(transactionArray[i]);
+          };
+        }})
+      }
+    });
+
+</script>

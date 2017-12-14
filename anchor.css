@@ -1,0 +1,192 @@
+body {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  /*  background: hsl(0, 0%, 50%);
+  background-size: 100%;
+  color: #fefefe;
+  /*   transition: background 1s; */
+}
+.flex-container {
+  position:absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top:10px;
+  bottom:10px;
+  left:10px;
+  right:10px;
+
+}
+
+.flex-container>div {
+  background-color: pink;
+}
+button {
+  font-size: 100%;
+  /*width: 50px;
+  height: 50px;*/
+  border-color: #004;
+  background-color: #C0FFEE;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button:hover {
+  color: #ffe;
+  background-color: #00f;
+}
+button:active {
+  background-color: #f00;
+  }
+td {
+  border-style: inset;
+  border-radius: 10px;
+/*  width: 50px;
+  height:50px;
+  text-align: center;*/
+}
+table{
+/*  width: 100%; */
+  border: none;
+
+}
+#infoTable {
+  width:500px;
+  text-align: left;
+  font-size: 16px;
+  margin:10px;
+}
+#buttonTable{
+  width:auto;
+  margin:30px;
+}
+.buttonCell{
+  font-family: monospace;
+  font-size: 40px;
+  width:50px;
+  height:50px;
+  border-style: outset;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.buttonCell:hover{
+  background-color: lightgrey;
+}
+.buttonCell:active{
+  color:#f00;
+  border-style:inset;
+}
+#header{
+    font-weight: bold;
+    font-size: 150px;
+    font-family: 'Anonymous Pro', monospace;
+    margin: 0px;
+    text-align: center;
+}
+#container{
+  width: 960px;
+  height: 500px;
+  border-style: outset;
+  border-radius: 10px;
+  top: 100px;
+}
+#hashSource{
+  font-size: 20px;
+  font-family:monospace;
+  text-align: center;
+  padding: 5px;
+}
+#rightHash {
+  color: red;
+}
+#message{
+  font-family: 'Anonymous Pro', monospace;
+}
+#rollHolder {
+  vertical-align: top;
+}
+#rollTable {
+  font-size: 16px;
+  margin: 30px;
+}
+.rollCell{
+  font-family: monospace;
+  font-size: 40px;
+  width:50px;
+  height:50px;
+  border-style: outset;
+  border-radius: 10px;
+  text-align: center;
+  cursor: default;
+}
+.infoLabel{
+  text-align: right;
+  border-style: none;
+}
+.infoContent {
+  font-family: monospace;
+  text-align: left;
+  border-style: none;
+}
+#payOut {
+  font-size: 40px;
+  height: 50px;
+  text-align: center;
+  border-style: inset;
+  margin: 30px;
+  border-radius: 10px;
+  visibility: hidden;
+}
+#transactionAddress {
+  text-align: center;
+  font-size: 14px;
+}
+#panel {
+  background-color: white;
+  width: 650px;
+  height: 350px;
+  visibility: hidden;
+  position: absolute;
+  border-style: outset;
+  border-radius: 10px;
+  font-size:20px;
+}
+p {
+  margin: 10px
+}
+#maximum {
+  color: blue;
+  cursor: pointer;
+}
+#filler {
+  height: 10px;
+}
+#clearButton {
+  visibility: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.buttonPad {
+  width: 15px;
+  border-style: none;
+}
+#closeButton {
+  position: absolute;
+  right: -15px;
+  color: blue;
+  top: -20px;
+  background-color: white;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  border-radius: 10px;
+  border-style: outset;
+  vertical-align: middle;
+  cursor: pointer;
+}
+#browser {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 400px;
+  visibility: hidden;
+}
