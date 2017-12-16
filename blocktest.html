@@ -5,7 +5,7 @@
     if (!e) {
       web3.eth.getBlock(hash, function(e,result) {
         if(!e) {
-          console.log('==========================================================');
+          console.log('=========================================================');
           console.log(result);
           var transactionArray = result.transactions;
           for ( i=0 ; i<transactionArray.length ; i++ ) {
