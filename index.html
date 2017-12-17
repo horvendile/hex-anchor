@@ -225,6 +225,7 @@
     </style>
   </head>
   <body>
+    <canvas class="background"></canvas>
     <div class="flex-container" >
       <table id="inner">
         <tr> <!-- Header and Info Table-->
@@ -387,6 +388,7 @@
       <p>You need to connect to the Ethereum Main Network, with Mist or the MetaMask extension in Chrome.</p>
     </div>
   </div>
+  <canvas class="background"></canvas>
   <script type="text/javascript"> // Load on opening
     function fillPanel(flash) {
       document.getElementById("panel").innerHTML = flash;
@@ -397,6 +399,7 @@
     }
     function hidePanel() {
       document.getElementById("panel").style.visibility = "hidden";
+      document.getElementById("inner").style.opacity = 1;
     }
     function autorun(){
       init();
@@ -404,10 +407,21 @@
       //updateScreen();
       fillPanel(flash1);
       showPanel();
+
+      Particles.init({
+           selector: '.background',
+           color: '#75A5B7',
+           maxParticles: 200,
+           connectParticles: true,
+           speed:1,
+           sizeVariations:3,
+         });
+
         }
     if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
     else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
     else window.onload = autorun;
   </script>
+  <script src="particles.js-master/dist/particles.min.js"></script>
 </body>
 </html>
