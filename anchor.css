@@ -14,6 +14,7 @@ body {
   bottom:10px;
   left:10px;
   right:10px;
+  background-color: alicseblue;
 
 }
 
@@ -37,8 +38,9 @@ button:active {
   background-color: #f00;
   }
 td {
-  border-style: inset;
+  border: silver solid thin;
   border-radius: 10px;
+  background-color: lightgrey;
 /*  width: 50px;
   height:50px;
   text-align: center;*/
@@ -67,6 +69,7 @@ table{
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
+  background-color: white;
 }
 .buttonCell:hover{
   background-color: lightgrey;
