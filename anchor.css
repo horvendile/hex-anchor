@@ -60,6 +60,7 @@ table{
 #buttonTable{
   width:auto;
   margin:30px;
+  border-spacing:5px;
 }
 .buttonCell{
   font-family: monospace;
@@ -111,6 +112,7 @@ table{
 #rollTable {
   font-size: 16px;
   margin: 30px;
+  border-spacing:5px;
 }
 .rollCell{
   font-family: monospace;
@@ -151,8 +153,8 @@ table{
   height: 350px;
   visibility: hidden;
   position: absolute;
-  border-style: outset;
-  border-radius: 10px;
+  border:silver solid thin;
+  border-radius: 0px;
   font-size:20px;
 }
 p {
@@ -176,15 +178,15 @@ p {
 }
 #closeButton {
   position: absolute;
-  right: -15px;
+  right: 0px;
   color: blue;
-  top: -20px;
+  top: 0px;
   background-color: white;
   width: 25px;
   height: 25px;
   text-align: center;
-  border-radius: 10px;
-  border-style: outset;
+  border-radius: 0px;
+  border:none;
   vertical-align: middle;
   cursor: pointer;
 }
