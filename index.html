@@ -12,7 +12,7 @@
 
     <script> //INITIAL  SETUP
 
-      var mainAccount, contractAddress, web3, bal , tHash;
+      var mainAccount, contractAddress, web3, bal , tHash , maxWager;
 
       var targetAddress = "0x300432bA68574DABB8872B7DE90CE84dde861b8c";
       var gas = 20*10**9
@@ -70,8 +70,12 @@
 
         web3.eth.getBalance(targetAddress, function(e, contractBalance) {
           if(!e) {
-            var unformattedContractBalance = Math.round(contractBalance/10**15)/1000
+            var unformattedContractBalance = Math.round(contractBalance/10**15)/1000;
+            maxWager = Math.floor(contractBalance/10**18)/10;
+            if (maxWager > 1) maxWager = 1;
+
             document.getElementById("cb").textContent = unformattedContractBalance.toFixed(3);
+            document.getElementById("mw").textContent = maxWager.toFixed(1);
           }
         });
       }
@@ -215,14 +219,17 @@
       }
 
       function updateTotal(){
+        if(bet.value>maxWager){
+          alert("Wager exceeds maximum");
+          bet.value = maxWager;
+          return;
+        }
         adjustedTotal = Math.round(total*bet.value*1000)/1000;
         document.getElementById('totalBets').textContent = adjustedTotal;
       }
 
     </script>
 
-    <style>
-    </style>
   </head>
   <body>
     <canvas class="background"></canvas>
@@ -334,6 +341,9 @@
               <table>
                 <tr>
                   <td>
+                    Maximimum Wager = <span id="mw" />
+                  </td>
+                  <td>
                     Wager :
                     <input
                     onchange = "updateTotal()"
@@ -359,7 +369,7 @@
                 <tr>
                   <td>
                     <button onclick = "submitTransaction(targetAddress, adjustedTotal*10**18, messageString)" >
-                      Press Here
+                      Place Wagers
                     </button>
                   </td>
                     <!--<td>
@@ -388,7 +398,7 @@
       <p>You need to connect to the Ethereum Main Network, with Mist or the MetaMask extension in Chrome.</p>
     </div>
   </div>
-  <canvas class="background"></canvas>
+  <canvas onclick="hidePanel()" class="background"></canvas>
   <script type="text/javascript"> // Load on opening
     function fillPanel(flash) {
       document.getElementById("panel").innerHTML = flash;
