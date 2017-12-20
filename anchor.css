@@ -3,10 +3,6 @@ html, body {
   padding: 0;
   background-color: midnightblue;
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  /* background: hsl(0, 0%, 50%);
-  background-size: 100%;
-  color: #fefefe;
-  /*   transition: background 1s; */
 }
 p {
   margin: 10px
@@ -29,6 +25,12 @@ button:active{
   border-style:inset;
 }
 
+table{
+  /*  width: 100%;
+  border: silver solid thin;
+  border-spacing:0px;
+  */
+}
 td {
   border: silver solid thin;
   background-color: whitesmoke;
@@ -36,12 +38,6 @@ td {
   width: 50px;
   height:50px;
   text-align: center;*/
-}
-table{
-  /*  width: 100%;
-  border: silver solid thin;
-  border-spacing:0px;
-  */
 }
 
 .background {
@@ -90,6 +86,9 @@ table{
   text-align: left;
   border-style: none;
 }
+#filler {
+  height: 15px;
+}
 
 #buttonTable{
   width:auto;
@@ -114,13 +113,16 @@ table{
   color:#f00;
   border-style:inset;
 }
-#container{
-  width: 960px;
-  height: 500px;
-  border-style: outset;
-  border-radius: 10px;
-  top: 100px;
+#clearButton {
+  visibility: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+.buttonPad {
+  width: 15px;
+  border-style: none;
+}
+
 #hashSource{
   font-size: 20px;
   font-family:monospace;
@@ -130,6 +132,7 @@ table{
 #rightHash {
   color: red;
 }
+
 #rollHolder {
   vertical-align: top;
 }
@@ -149,6 +152,7 @@ table{
   cursor: default;
   background-color: white;
 }
+
 #payOut {
   font-size: 40px;
   height: 50px;
@@ -162,6 +166,7 @@ table{
   text-align: center;
   font-size: 14px;
 }
+
 #panel {
   background-color: white;
   width: 680px;
@@ -175,18 +180,6 @@ table{
 #maximum {
   color: blue;
   cursor: pointer;
-}
-#filler {
-  height: 10px;
-}
-#clearButton {
-  visibility: hidden;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.buttonPad {
-  width: 15px;
-  border-style: none;
 }
 #closeButton {
   position: absolute;
