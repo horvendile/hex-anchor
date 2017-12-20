@@ -81,7 +81,7 @@
       }
 
       function submitTransaction(_contractAddress , _value , _data) {
-        document.getElementById("leftHash").textContent = "Waiting for block to be mined";
+        document.getElementById("leftHash").innerHTML = "<marquee>Waiting for block to be mined</marquee>";
         document.getElementById("rightHash").textContent = "";
         clearRolls();
         web3.eth.sendTransaction({to: _contractAddress, value: _value, data:_data, gasPrice: gas },
@@ -220,13 +220,26 @@
 
       function updateTotal(){
         if(bet.value>maxWager){
-          alert("Wager exceeds maximum");
+//          alert("Wager exceeds maximum");
+          wagerOverflow()
           bet.value = maxWager;
           return;
         }
         adjustedTotal = Math.round(total*bet.value*1000)/1000;
         document.getElementById('totalBets').textContent = adjustedTotal;
       }
+
+      var overFlowHTML = "Overflow"+
+      "<button style = 'bottom:20px; right:20px; position:absolute' onclick='hidePanel()'>OK</button>";
+      function wagerOverflow() {
+        document.getElementById("panel").innerHTML = overFlowHTML;
+        document.getElementById("panel").style.backgroundColor = "pink";
+        document.getElementById("panel").style.width = "300px";
+        document.getElementById("panel").style.height = "200px";
+        showPanel();
+      }
+
+
 
     </script>
 
@@ -413,8 +426,8 @@
     }
     function autorun(){
       init();
-      processHash(web3.sha3(String(Math.random())).toUpperCase());
-      //updateScreen();
+      document.getElementById("leftHash").innerHTML = "<marquee>Ready to play</marquee>";
+      document.getElementById("rightHash").textContent = "";
       fillPanel(flash1);
       showPanel();
 

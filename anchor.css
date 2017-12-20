@@ -11,22 +11,24 @@ html, body {
 p {
   margin: 10px
 }
-button {
-  font-size: 100%;
-  /*width: 50px;
-  height: 50px;*/
-  border-color: #00f;
-  background-color: #C0FFEE;
+button{
+  font-family: monospace;
+  font-size: 40px;
+  height:50px;
+  border-style: outset;
   border-radius: 10px;
+  text-align: center;
   cursor: pointer;
+  background-color: white;
 }
-button:hover {
-  color: #ffe;
-  background-color: #00f;
+button:hover{
+  background-color: lightgrey;
 }
-button:active {
-  background-color: #f00;
-  }
+button:active{
+  color:#f00;
+  border-style:inset;
+}
+
 td {
   border: silver solid thin;
   background-color: whitesmoke;
