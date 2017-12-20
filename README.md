@@ -431,7 +431,7 @@
       fillPanel(flash1);
       showPanel();
 
-      Particles.init({
+     Particles.init({
            selector: '.background',
            color: '#75A5B7',
            maxParticles: 200,
