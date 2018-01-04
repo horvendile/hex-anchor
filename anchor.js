@@ -1,5 +1,5 @@
 
-var mainAccount, contractAddress, web3, bal , tHash , maxWager;
+var mainAccount , web3 , bal , tHash , maxWager;
 
 var targetAddress = "0x300432bA68574DABB8872B7DE90CE84dde861b8c";
 var gas = 20*10**9
@@ -25,71 +25,70 @@ function autorun(){
   Particles.init({
     selector: '.background',
     color: '#75A5B7',
-    maxParticles: 200,
+    maxParticles: 50,
     connectParticles: true,
     speed:1,
     sizeVariations:3,
   });
 
 }
-// FUNCTION IS EXECUTED ON PAGE LOAD
-function init() {
-  //  document.getElementById("message").textContent = messageString;
+
+function init() { // FUNCTION IS EXECUTED ON PAGE LOAD
   // Checks Web3 support
   if(typeof web3 !== 'undefined' && typeof Web3 !== 'undefined') {
     // If there's a web3 library loaded, then make your own web3
     web3 = new Web3(web3.currentProvider);
-  } else if (typeof Web3 !== 'undefined') {
-    // If there isn't then set a provider
-    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-  } else if(typeof web3 == 'undefined') {
-    // If there is neither then this isn't an ethereum browser
+    } else if (typeof Web3 !== 'undefined') {
+      // If there isn't then set a provider
+      web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    } else if(typeof web3 == 'undefined') {
+      // If there is neither then this isn't an ethereum browser
 
-    // browser.style.visibility = "visible";
-    document.getElementById("browser").style.visibility = "visible";
-    return;
+      // browser.style.visibility = "visible";
+      document.getElementById("browser").style.visibility = "visible";
+      return;
   }
 
-  // Check if there are available accounts
+  /*// Check if there are available accounts
 
-  /*// Checks Web3 support
+  // Checks Web3 support
   if (typeof web3 !== 'undefined') {
   // If there isn't then set a provider
   web3 = new Web3(web3.currentProvider);
-} else { // use Infura if it's not there
-web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/xb1hnXsk67Yb6pIlVPvv"));
-}
-*/
-
-// Get user's ethereum account
-web3.eth.getAccounts(function(e,accounts){
-  // show the floating baloon
-  if (e || !accounts || accounts.length == 0) {
-    document.getElementById("browser").style.visibility = "visible";
-  } else {
-    mainAccount = accounts[0];
-    document.getElementById("ma").textContent = mainAccount.toUpperCase();
-    document.getElementById("ca").textContent = targetAddress.toUpperCase();
-
-    web3.eth.getBalance(mainAccount, function(e, accountBalance){
-      if(!e) {
-        var unformattedAccountBalance = Math.round(accountBalance/10**15)/1000
-        document.getElementById("ba").textContent = unformattedAccountBalance.toFixed(3);
-      }
-    });
+  } else { // use Infura if it's not there
+  web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/xb1hnXsk67Yb6pIlVPvv"));
   }
-});
+  */
 
-web3.eth.getBalance(targetAddress, function(e, contractBalance) {
-  if(!e) {
-    var unformattedContractBalance = Math.round(contractBalance/10**15)/1000;
-    maxWager = Math.floor(contractBalance/10**18)/10;
-    if (maxWager > 1) maxWager = 1;
+  // Get user's ethereum account
+  web3.eth.getAccounts(function(e,accounts){
+    // show the floating baloon
+    if (e || !accounts || accounts.length == 0) {
+      document.getElementById("browser").style.visibility = "visible";
+    } else {
+      mainAccount = accounts[0];
+      document.getElementById("ma").textContent = mainAccount.toUpperCase();
+      document.getElementById("ca").textContent = targetAddress.toUpperCase();
 
-    document.getElementById("cb").textContent = unformattedContractBalance.toFixed(3);
-    document.getElementById("mw").textContent = maxWager.toFixed(1);
-  }
-});
+      web3.eth.getBalance(mainAccount, function(e, accountBalance){
+        if(!e) {
+          var unformattedAccountBalance = Math.round(accountBalance/10**15)/1000
+          document.getElementById("ba").textContent = unformattedAccountBalance.toFixed(3);
+        }
+      });
+    }
+  });
+
+  web3.eth.getBalance(targetAddress, function(e, contractBalance) {
+    if(!e) {
+      var unformattedContractBalance = Math.round(contractBalance/10**15)/1000;
+      maxWager = Math.floor(contractBalance/10**18)/10;
+      if (maxWager > 1) maxWager = 1;
+
+      document.getElementById("cb").textContent = unformattedContractBalance.toFixed(3);
+      document.getElementById("mw").textContent = maxWager.toFixed(1);
+    }
+  });
 }
 
 function submitTransaction(_contractAddress , _value , _data) {
@@ -157,7 +156,7 @@ function submitTransaction(_contractAddress , _value , _data) {
       }
     }
 
-    var hexArray = ["0","1","2","3","4","5","6","7","8","9","A","B","C","Đ","Ξ","F"]
+    //var hexArray = ["0","1","2","3","4","5","6","7","8","9","A","B","C","Đ","Ξ","F"]
     var numbtns = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     var bets = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     var total = 0;
